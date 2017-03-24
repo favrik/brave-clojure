@@ -74,9 +74,10 @@
                     :glitter-index #(and (number? %))})
 (defn validate
   [keywords record]
-  ((complement (partial some false?)) (map (fn [[vamp-key value]]
-            ((vamp-key keywords) value))
-            record)))
+  ((complement (partial some false?))
+     (map
+       (fn [[vamp-key value]] ((vamp-key keywords) value))
+       record)))
 
 (defn append-cond
   [suspects new-suspect]
